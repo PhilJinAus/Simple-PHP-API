@@ -5,6 +5,12 @@ if(isset($_GET['format'])) {
 //Set our variables
 $format = strtolower($_GET['format']);
 $num = intval($_GET['num']);
+
+/* Pass any other variables relating to the API query via the url and create variables such as the ones above.
+   For example: $type = $_GET['articleType'];
+   Alternatively, you can create specific APIs for specific purposes - get.php gets 'all' data from a table, 
+   while .getNews.php may just get articles of the type 'news'.
+*/
  
 //Connect to the Database
 $db = new mysqli("localhost", "my_user", "my_password", "myDB");
@@ -13,7 +19,7 @@ if ($db->connect_errno) {
 }
 
  
-//Run our query, I use '*' here, but ideally you would tell the DB exactly what data to fetch
+//Run our query, I use '*' here, but ideally you would tell the DB exactly what data to fetch.
 if ($result = $db->query("SELECT * FROM myTable LIMIT ".$num)) {
  
   //Preapre our output
