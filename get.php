@@ -7,7 +7,7 @@ $format = strtolower($_GET['format']);
 $num = intval($_GET['num']);
 
 /* Pass any other variables relating to the API query via the url and create variables such as the ones above.
-   For example: $type = $_GET['articleType'];
+   For example: $type = $_GET['articleType']; via the url http://www.example.com/get.php?format=json&type=news
    Alternatively, you can create specific APIs for specific purposes - get.php gets 'all' data from a table, 
    while .getNews.php may just get articles of the type 'news'.
 */
@@ -57,7 +57,7 @@ if ($result = $db->query("SELECT * FROM myTable LIMIT ".$num)) {
   
   $db->close();
    
-  //Output the output.
+  //Output the output and import into your application.
   echo $output;
    
   }
